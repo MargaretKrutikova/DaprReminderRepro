@@ -1,0 +1,20 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore
+spec:
+  type: state.mongodb
+  version: v1
+  metadata:
+    - name: host
+      value: localhost:27018 
+    - name: databaseName
+      value: reminderTest
+    - name: collectionName
+      value: "reminderTestState"
+    - name: params
+      value: "?directConnection=true&replicaSet=rs0"
+    - name: actorStateStore
+      value: "true"
+    - name: keyPrefix
+      value: name
